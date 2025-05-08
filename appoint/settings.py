@@ -148,7 +148,7 @@ INTERNAL_IPS = [
 # Static files (CSS, JavaScript, Images)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR/'all_static'
+STATIC_ROOT = BASE_DIR/'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
