@@ -1,0 +1,117 @@
+/* Common style start*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+button,
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 15px;
+    line-height: 26px;
+}
+
+.fullContainer {
+    width: 100%;
+}
+
+.container {
+    width: 1140px; 
+    max-width: auto;   
+}
+
+.sectionTitle {
+    width: 300px;
+    border-bottom: 3px solid #020eb9;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 200;
+    margin: 0 auto 50px;
+    position: relative;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.sectionTitle::after {
+    display: inline-block;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background-color:#020eb9;
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(75% - 3px);
+    transform: rotate(45deg) translate(50%, 50%);
+    border: 3px solid #fff;
+}
+
+section {
+    position: relative;
+}
+
+
+/* Common style end */
+
+/*Home Style start*/
+.banner4 {
+
+    width: 100%;
+    background-image: url("../images/home/k.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.banner4 h1 {
+    margin-top: 50px;
+    display: inline-block;
+    text-align: center;
+    font-size: 3.0rem;
+    color: #fffdfd;
+    width: 50%;
+    margin-bottom: 50px;
+    font-weight: 200;
+}
+
+.banner4 h1 span {
+    background-color: #020eb9;
+    display: inline-block;
+    line-height: 3.0rem;
+    padding: 0 16px;
+    padding-bottom: 3px;
+    font-weight: 500;
+    border-radius: 2px;
+}
+
+.banner4 p {
+    color: #ffffff;
+    width: 50%;
+
+}
+
+.banner4 button {
+    background-color: #020eb9;
+    border: 0;
+    outline: none;
+    color:#fff;
+    font-weight: 700;
+    padding: 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 9px;
+   
+}
+
+
+.services h2 {
+    font-weight: 700;
+    color:#020eb9;
+}
+

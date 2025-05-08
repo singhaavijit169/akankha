@@ -1,0 +1,105 @@
+{% if request.user.is_authenticated %}
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html class="h-full bg-violet-50">
+<head>
+
+
+    <style>
+        body{
+            padding-top: 7em;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Akankha Homeo | Payment</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center pb-2">
+            <img src="{% static 'appoint_app/images/appoint-master-logo.png' %}" alt="Logo" style="width: 43px; height: 43px;">
+        </div>
+        <h4 class="text-center mb-4" style="color: rgba(12, 189, 21, 0.932);">Initiate Payment</h4>
+        
+      
+            <form class="mx-auto" style="max-width: 400px;">
+
+                <div class="form-group col-sm-10 mx-auto">
+                  <label class="control-label" for="patient">Patient:</label>
+                    <input class="form-control" id="patient"  readonly value={{patient}}>
+                </div>
+
+                
+
+                <div class="form-group col-sm-10 mx-auto">
+                    <label class="control-label" for="date">Appoint Date:</label>
+                      <input class="form-control" id="date" readonly value="{{ date|date:'d M, Y' }}">
+                </div>
+
+                <div class="form-group col-sm-10 mx-auto">
+                    <label class="control-label" for="centre">Centre:</label>
+                      <input class="form-control" id="centre" readonly value={{centre}}>
+                </div>
+
+                <div class="form-group col-sm-10 mx-auto">
+                    <label class="control-label" for="amount">Amount (Rs.):</label>
+                      <input class="form-control" id="amount" readonly value={{amount}}>
+                </div>
+
+                <div class="form-group col-sm-10 mx-auto">
+                    <button id="pay-btn" class="btn btn-success btn-block" style="border-radius: 18px;">Confirm</button>
+
+                </div>
+             
+              </form>
+
+
+            
+        
+    
+        <p class="mt-4 text-center text-sm text-gray-500">
+       
+            <a href="{% url 'cancel-payment' %}" style="text-decoration: none; color: rgb(206, 17, 17); font-weight: 600;">Cancel</a>
+        </p>  
+    </div>
+</body>
+
+ <!-- Razorpay's Javascript code. -->
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ <script>
+   var options = {
+     
+     // Enter the Key ID generated from the Dashboard
+     key: "{{ razorpay_merchant_key }}", 
+     
+     // Amount is in currency subunits.
+     // Default currency is INR. Hence, 
+     // 50000 refers to 50000 paise
+     amount: "{{ razorpay_amount }}", 
+     currency: "{{ currency }}",
+     
+     // Your/store name.
+     name: "Akankha Homeo Research Centre", 
+     
+     // Pass the `id` obtained in the response of Step 1
+     order_id: "{{ razorpay_order_id }}", 
+     callback_url: "{{ callback_url }}",
+   };
+   
+   // initialise razorpay with the options.
+   var rzp1 = new Razorpay(options);
+   
+   // add event listener to the payment button.
+   document.getElementById("pay-btn").onclick = function (e) {
+     rzp1.open();
+     e.preventDefault();
+   };
+ </script>
+</html>
+{% endif %}
