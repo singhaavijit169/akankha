@@ -27,7 +27,7 @@ EMAIL_USE_SSL = False
 SECRET_KEY = 'django-insecure-l4c%xn+vgw5=yi!)j$1(x5*c6hf7@2z)8vaio9zu3gch0+lfsw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # For testing site in different platforms/devices
 ALLOWED_HOSTS = ['*']
@@ -147,9 +147,9 @@ INTERNAL_IPS = [
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # Static files (CSS, JavaScript, Images)
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR/'static'
+STATIC_ROOT = BASE_DIR/'all_static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 
